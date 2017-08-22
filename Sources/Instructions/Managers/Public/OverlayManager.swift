@@ -94,7 +94,7 @@ public class OverlayManager {
     /// Used to temporarily disable the tap, for a given coachmark.
     internal var enableTap: Bool = true
 
-    internal lazy var overlayView: OverlayView = OverlayView()
+    public lazy var overlayView: OverlayView = OverlayView()
 
     // MARK: - Private Properties
     private lazy var overlayStyleManager: OverlayStyleManager = {
