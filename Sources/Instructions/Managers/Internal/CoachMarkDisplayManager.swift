@@ -81,6 +81,9 @@ class CoachMarkDisplayManager {
         } else {
             UIView.animate(withDuration: animationDuration, animations: { () -> Void in
                 coachMarkView?.alpha = 0.0
+                var frame = (coachMarkView!).frame
+                frame.origin.y = 800
+                (coachMarkView!).frame = frame
             }, completion: { _ in
                 coachMarkView?.removeFromSuperview()
                 completion?()
@@ -113,8 +116,13 @@ class CoachMarkDisplayManager {
         overlay.showCutoutPath(true, withDuration: coachMark.animationDuration)
 
         if animated {
+            var frame = (coachMarkView as UIView).frame
+            let oldValue = frame.origin.y
+            frame.origin.y = 800
+            (coachMarkView as UIView).frame = frame
             UIView.animate(withDuration: coachMark.animationDuration, animations: { () -> Void in
                 coachMarkView.alpha = 1.0
+                (coachMarkView as UIView).frame.origin.y = oldValue
             }, completion: { _ in
                 completion?()
             })
